@@ -61,6 +61,13 @@ spec:
     type: list(map(string))
     default: []
     required: false
+    connections:
+    - source:
+        source: https://github.com/q2w/terraform-google-sql-db//modules/postgresql
+        version: latest
+      spec:
+        output_expr: generated_user_password
+        input_path: secret_data
   - name: topics
     description: topics that will be used for defined secrets
     type: map(list(object({ name = string })))
